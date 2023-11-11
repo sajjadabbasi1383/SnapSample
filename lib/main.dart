@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snap_map/constant/dimens.dart';
 import 'package:snap_map/map_screen.dart';
 
 void main() {
@@ -11,10 +12,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MapScreen()
+      home: const MapScreen(),
+      theme: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(
+                  fixedSize:
+                      const MaterialStatePropertyAll(Size(double.infinity, 60)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(Dimens.medium))),
+                  elevation: const MaterialStatePropertyAll(0),
+                  backgroundColor: MaterialStateProperty.resolveWith((states) {
+                    return const Color.fromARGB(255, 2, 207, 36);
+                  })))),
     );
   }
 }
-

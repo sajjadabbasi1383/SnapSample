@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:snap_map/dimens.dart';
-import 'package:snap_map/my_text_style.dart';
+import 'package:snap_map/constant/dimens.dart';
+import 'package:snap_map/constant/my_text_style.dart';
+import 'package:snap_map/widget/back_button.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -17,38 +18,22 @@ class _MapScreenState extends State<MapScreen> {
       body: Stack(
         children: [
           Container(
-            color: Colors.green,
+            color: Colors.blueGrey,
           ),
           Positioned(
               bottom: 0,
               left: 0,
               right: 0,
-              child: ElevatedButton(
-                  onPressed: () {}, child:  Text("انتخاب مبدا",style: MyTextStyle.main,))),
-          Positioned(
-            top: Dimens.medium,
-            left: Dimens.medium,
-            child: Container(
-              width: 55,
-              height: 55,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    offset: Offset(2,3),
-                    blurRadius: 18
-                  )
-                ]
-              ),
-              child: IconButton(onPressed: () {
-
-              },icon: Icon(Icons.arrow_back)),
-            ),
-          ),
+              child: Padding(
+                padding: const EdgeInsets.all(Dimens.large),
+                child: ElevatedButton(
+                    onPressed: () {}, child:  Text("انتخاب مبدا",style: MyTextStyle.main,)),
+              )),
+           MyBackButton(onPressed: (){},),
         ],
       ),
     ));
   }
 }
+
+

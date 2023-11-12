@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snap_map/constant/dimens.dart';
 import 'package:snap_map/constant/my_text_style.dart';
@@ -29,7 +30,7 @@ class _MapScreenState extends State<MapScreen> {
     width: 40,
   );
   MapController mapController = MapController(
-      initMapWithUserPosition: const UserTrackingOption(enableTracking: false),
+
       initPosition: GeoPoint(latitude: 36.2884, longitude: 59.6157));
 
   @override
@@ -38,9 +39,21 @@ class _MapScreenState extends State<MapScreen> {
         child: Scaffold(
       body: Stack(
         children: [
-          Container(
-            color: Colors.blueGrey,
+
+
+          SizedBox.expand(
+            child: OSMFlutter(
+              controller: mapController,
+              osmOption: OSMOption(
+                zoomOption: const ZoomOption(initZoom: 14,minZoomLevel: 8,maxZoomLevel: 18,stepZoom: 1),
+                isPicker: true,
+                markerOption: MarkerOption(advancedPickerMarker: MarkerIcon(iconWidget: markerIcon,))
+              ),
+              mapIsLoading: const SpinKitCircle(color: Colors.black),
+            ),
           ),
+
+
           currentWidget(),
           MyBackButton(
             onPressed: () {

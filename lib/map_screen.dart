@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snap_map/constant/dimens.dart';
 import 'package:snap_map/constant/my_text_style.dart';
 import 'package:snap_map/widget/back_button.dart';
 
 class CurrentWidgetState {
   CurrentWidgetState._();
+
   static const stateSelectOrigin = 0;
   static const stateSelectDestination = 1;
   static const stateRequestDriver = 2;
@@ -18,7 +21,16 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+  List<GeoPoint> geoPoint = [];
   List currentWidgetList = [CurrentWidgetState.stateSelectOrigin];
+  Widget markerIcon = SvgPicture.asset(
+    "assets/icons/origin.svg",
+    height: 100,
+    width: 40,
+  );
+  MapController mapController = MapController(
+      initMapWithUserPosition: const UserTrackingOption(enableTracking: false),
+      initPosition: GeoPoint(latitude: 36.2884, longitude: 59.6157));
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +45,7 @@ class _MapScreenState extends State<MapScreen> {
           MyBackButton(
             onPressed: () {
               setState(() {
-                if(currentWidgetList.length>1){
+                if (currentWidgetList.length > 1) {
                   currentWidgetList.removeLast();
                 }
               });
@@ -46,7 +58,6 @@ class _MapScreenState extends State<MapScreen> {
 
   Widget currentWidget() {
     Widget widget = origin();
-
     switch (currentWidgetList.last) {
       case CurrentWidgetState.stateSelectOrigin:
         widget = origin();
@@ -58,7 +69,6 @@ class _MapScreenState extends State<MapScreen> {
         widget = reqDriver();
         break;
     }
-
     return widget;
   }
 
@@ -93,8 +103,7 @@ class _MapScreenState extends State<MapScreen> {
           child: ElevatedButton(
               onPressed: () {
                 setState(() {
-                  currentWidgetList
-                      .add(CurrentWidgetState.stateRequestDriver);
+                  currentWidgetList.add(CurrentWidgetState.stateRequestDriver);
                 });
               },
               child: Text(

@@ -60,6 +60,17 @@ class _MapScreenState extends State<MapScreen> {
           MyBackButton(
             onPressed: () {
               setState(() {
+
+                if(geoPoint.isNotEmpty){
+                  geoPoint.removeLast();
+                  markerIcon = SvgPicture.asset(
+                    "assets/icons/origin.svg",
+                    height: 100,
+                    width: 40,
+                  );
+                  mapController.init();
+                }
+
                 if (currentWidgetList.length > 1) {
                   currentWidgetList.removeLast();
                 }

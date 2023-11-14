@@ -26,6 +26,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   List<GeoPoint> geoPoint = [];
+  var visibleBackButton =false;
   String distance = "در حال محاسبه فاصله...";
   String originAddress = "در حال دریافت آدرس مبدا...";
   String destAddress = "در حال دریافت آدرس مقصد...";
@@ -50,6 +51,9 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return SafeArea(
         child: Scaffold(
       body: Stack(
@@ -72,24 +76,38 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
           currentWidget(),
-          MyBackButton(
-            onPressed: () {
-              setState(() {
-                if (geoPoint.isNotEmpty) {
-                  geoPoint.removeLast();
-                  markerIcon = SvgPicture.asset(
-                    "assets/icons/origin.svg",
-                    height: 100,
-                    width: 40,
-                  );
-                  mapController.init();
-                }
+          Visibility(
+            visible: visibleBackButton,
+            child: MyBackButton(
+              onPressed: () {
 
-                if (currentWidgetList.length > 1) {
-                  currentWidgetList.removeLast();
-                }
-              });
-            },
+                  switch(currentWidgetList.last){
+                    case CurrentWidgetState.stateSelectDestination:
+                      mapController.removeMarker(geoPoint.last);
+                      geoPoint.removeLast();
+                      markerIcon=SvgPicture.asset(
+                        "assets/icons/origin.svg",
+                        height: 110,
+                        width: 44,
+                      );
+                      mapController.init();
+                      visibleBackButton=false;
+                    break;
+                    case CurrentWidgetState.stateRequestDriver:
+                      mapController.advancedPositionPicker();
+                      mapController.removeMarker(geoPoint.last);
+                      geoPoint.removeLast();
+                      markerIcon=destMarkerIcon;
+                      mapController.zoomIn();
+                    break;
+                  }
+
+                  setState(() {
+                    currentWidgetList.removeLast();
+                  });
+
+              },
+            ),
           ),
         ],
       ),
@@ -135,6 +153,7 @@ class _MapScreenState extends State<MapScreen> {
                 setState(() {
                   currentWidgetList
                       .add(CurrentWidgetState.stateSelectDestination);
+                  visibleBackButton=true;
                 });
 
                 mapController.init();
@@ -184,7 +203,7 @@ class _MapScreenState extends State<MapScreen> {
                     distance = "فاصله مبدا تا مقصد ${value ~/ 1000} کیلومتر";
                   }
                 });
-
+                mapController.zoomOut();
                 getAddress();
               },
               child: Text(
@@ -195,7 +214,6 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Widget reqDriver() {
-    mapController.zoomOut();
     return Positioned(
         bottom: 0,
         left: 0,

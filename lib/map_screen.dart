@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -85,7 +87,7 @@ class _MapScreenState extends State<MapScreen> {
     return widget;
   }
 
-  Positioned origin() {
+  Widget origin() {
     return Positioned(
         bottom: 0,
         left: 0,
@@ -93,11 +95,24 @@ class _MapScreenState extends State<MapScreen> {
         child: Padding(
           padding: const EdgeInsets.all(Dimens.large),
           child: ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+
+                GeoPoint originGeoPoint=await mapController.getCurrentPositionAdvancedPositionPicker();
+                log("${originGeoPoint.latitude} ::: ${originGeoPoint.longitude}");
+                geoPoint.add(originGeoPoint);
+
+                markerIcon = SvgPicture.asset(
+                  "assets/icons/destination.svg",
+                  height: 100,
+                  width: 40,
+                );
+
                 setState(() {
                   currentWidgetList
                       .add(CurrentWidgetState.stateSelectDestination);
                 });
+
+                mapController.init();
               },
               child: Text(
                 "انتخاب مبدا",
@@ -106,7 +121,7 @@ class _MapScreenState extends State<MapScreen> {
         ));
   }
 
-  Positioned destination() {
+  Widget destination() {
     return Positioned(
         bottom: 0,
         left: 0,
@@ -126,7 +141,7 @@ class _MapScreenState extends State<MapScreen> {
         ));
   }
 
-  Positioned reqDriver() {
+  Widget reqDriver() {
     return Positioned(
         bottom: 0,
         left: 0,

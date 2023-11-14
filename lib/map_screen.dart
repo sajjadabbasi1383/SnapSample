@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snap_map/constant/dimens.dart';
 import 'package:snap_map/constant/my_text_style.dart';
@@ -26,6 +27,8 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   List<GeoPoint> geoPoint = [];
   String distance = "در حال محاسبه فاصله...";
+  String originAddress = "در حال دریافت آدرس مبدا...";
+  String destAddress = "در حال دریافت آدرس مقصد...";
   List currentWidgetList = [CurrentWidgetState.stateSelectOrigin];
   Widget markerIcon = SvgPicture.asset(
     "assets/icons/origin.svg",
@@ -160,7 +163,6 @@ class _MapScreenState extends State<MapScreen> {
 
                 mapController.cancelAdvancedPositionPicker();
 
-
                 await mapController.addMarker(geoPoint.first,
                     markerIcon: MarkerIcon(
                       iconWidget: originMarkerIcon,
@@ -182,6 +184,8 @@ class _MapScreenState extends State<MapScreen> {
                     distance = "فاصله مبدا تا مقصد ${value ~/ 1000} کیلومتر";
                   }
                 });
+
+                getAddress();
               },
               child: Text(
                 "انتخاب مقصد",
@@ -204,12 +208,35 @@ class _MapScreenState extends State<MapScreen> {
                 height: 50,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimens.medium),
-                  color: Colors.white
+                    borderRadius: BorderRadius.circular(Dimens.medium),
+                    color: Colors.white),
+                child: Center(
+                  child: Text(distance),
                 ),
-                child: Center(child: Text(distance),),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimens.medium),
+                      color: Colors.white),
+                  child: Center(child: Text("آدرس مبدا: $originAddress",style: MyTextStyle.textStyle,textDirection: TextDirection.rtl))),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimens.medium),
+                      color: Colors.white),
+                  child: Center(child: Text("آدرس مقصد: $destAddress",style: MyTextStyle.textStyle,textDirection: TextDirection.rtl))),
+              const SizedBox(
+                height: 10,
+              ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
@@ -222,5 +249,31 @@ class _MapScreenState extends State<MapScreen> {
             ],
           ),
         ));
+  }
+
+  getAddress() async {
+    try {
+      await placemarkFromCoordinates(
+              geoPoint.first.latitude, geoPoint.first.longitude,
+              localeIdentifier: 'fa')
+          .then((List<Placemark> plist) {
+        setState(() {
+          originAddress =
+              "${plist.first.locality} ${plist.first.thoroughfare} ${plist[2].name}";
+        });
+      });
+      await placemarkFromCoordinates(
+              geoPoint.last.latitude, geoPoint.last.longitude,
+              localeIdentifier: 'fa')
+          .then((List<Placemark> plist) {
+        setState(() {
+          destAddress =
+              "${plist.first.locality} ${plist.first.thoroughfare} ${plist[2].name}";
+        });
+      });
+    } catch (e) {
+      originAddress = "آدرس یافت نشد";
+      destAddress = "آدرس یافت نشد";
+    }
   }
 }

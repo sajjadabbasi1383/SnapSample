@@ -7,4 +7,5 @@ class MyTextStyle{
   MyTextStyle._();
 
   static TextStyle main=GoogleFonts.vazirmatn(fontSize: 22);
+  static TextStyle textStyle=GoogleFonts.vazirmatn(fontSize: 14);
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:snap_map/constant/dimens.dart';
 import 'package:snap_map/map_screen.dart';
 
+import 'login.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,8 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
-      home: const MapScreen(),
+      home: const LoginPage(),
       theme: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(

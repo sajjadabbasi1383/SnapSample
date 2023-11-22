@@ -229,7 +229,7 @@ class _MapScreenState extends State<MapScreen> {
                     borderRadius: BorderRadius.circular(Dimens.medium),
                     color: Colors.white),
                 child: Center(
-                  child: Text(distance),
+                  child: Text(distance,style: MyTextStyle.textStyle,textDirection: TextDirection.rtl),
                 ),
               ),
               const SizedBox(

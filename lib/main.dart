@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snap_map/constant/dimens.dart';
+import 'package:snap_map/home_screen.dart';
 import 'package:snap_map/map_screen.dart';
 
 import 'login.dart';
@@ -17,8 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: const HomeScreen(),
       theme: ThemeData(
+        fontFamily: 'Vazir',
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                   fixedSize:

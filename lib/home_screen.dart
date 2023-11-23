@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 4,
       animationDuration: const Duration(milliseconds: 300),
       child: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           bottom: const TabBar(
             indicatorColor: Colors.black,
@@ -128,8 +128,12 @@ class BottomNavBar extends StatelessWidget {
         padding: const EdgeInsets.only(right: 40, left: 40),
         child: Container(
           height: 90,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18), color: Colors.white),
+          decoration: BoxDecoration(boxShadow: const [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 30,
+            )
+          ], borderRadius: BorderRadius.circular(18), color: Colors.white),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -204,8 +208,7 @@ Widget homePage() {
     children: [
       SingleChildScrollView(
         //TODO:physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
+        child: Column(children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(

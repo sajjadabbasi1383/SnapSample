@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:snap_map/constant/dimens.dart';
 import 'package:snap_map/home_screen.dart';
-import 'package:snap_map/map_screen.dart';
 
-import 'login.dart';
 
 void main() {
   runApp(const MyApp());

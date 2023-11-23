@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snap_map/constant/my_text_style.dart';
+import 'package:snap_map/gen/assets.gen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return  SafeArea(
         child: DefaultTabController(
+          initialIndex: 3,
           length: 4,
           animationDuration: const Duration(milliseconds: 300),
           child: Scaffold(
@@ -42,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const Icon(Icons.mail_outline,size: 24,color: Colors.black,),
               const SizedBox(width: 18,),
               const Expanded(child: SizedBox.shrink()),
-              Image.asset("assets/images/logo.png",width: 74,),
+              Image.asset(Assets.images.logo.path,width: 74,),
 
             ],
           ),
@@ -185,9 +187,22 @@ class BottomNavBar extends StatelessWidget {
 }
 
 Widget homePage(){
-  return const Stack(
+  return  Stack(
     children: [
-      BottomNavBar(),
+      Positioned(
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child:  Container(
+            //width: double.infinity,
+            height: 60,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image:  DecorationImage(
+                    image: AssetImage(Assets.images.logo.path), fit: BoxFit.fill)),
+          ),
+        ),
+      ),
+      const BottomNavBar(),
     ],
   );
 }

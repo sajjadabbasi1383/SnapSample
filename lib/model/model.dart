@@ -233,3 +233,17 @@ List<String> imgList = [
   Assets.images.bannerEco.path,
   Assets.images.bannerDisFood.path,
 ];
+List<String> imgFrameList = [
+  Assets.images.frameOther.path,
+  Assets.images.frameSalamat.path,
+  Assets.images.frameAjil.path,
+  Assets.images.frameAtari.path,
+  Assets.images.frameLabani.path,
+  Assets.images.frameFlower.path,
+  Assets.images.frameIce.path,
+  Assets.images.frameCafe.path,
+  Assets.images.frameShirini.path,
+  Assets.images.frameProto.path,
+  Assets.images.frameFrut.path,
+  Assets.images.frameNan.path,
+];

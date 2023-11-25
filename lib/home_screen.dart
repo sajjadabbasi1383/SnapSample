@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:snap_map/constant/my_text_style.dart';
 import 'package:snap_map/gen/assets.gen.dart';
+import 'package:snap_map/widget/my_widget.dart';
 
 import 'model/model.dart';
 
@@ -130,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 //width: double.infinity,
                 height: 73,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(13),
                     image: DecorationImage(
                         image: AssetImage(Assets.images.bannerHaraj.path),
                         fit: BoxFit.fill)),
@@ -155,49 +156,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            Stack(children: [
-              CarouselSlider(
-                items: imageSliders,
-                carouselController: _controller,
-                options: CarouselOptions(
-                    autoPlay: true,
-                    enlargeCenterPage: true,
-                    aspectRatio: 2.0,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        _current = index;
-                      });
-                    }),
-              ),
-              Positioned(
-                bottom: 7,
-                right: 0,
-                left: 0,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: imgList.asMap().entries.map((entry) {
-                    return GestureDetector(
-                      onTap: () => _controller.animateToPage(entry.key),
-                      child: Container(
-                        width: 8.0,
-                        height: 8.0,
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 2.0),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: (_current == entry.key
-                                    ? Colors.white
-                                    : Colors.black)
-                                .withOpacity(
-                                    _current == entry.key ? 0.9 : 0.3)),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              ),
-            ]),
+            slider(),
+            const CategoryListView(),
             const SizedBox(
-              height: 100,
+              height: 200,
             ),
           ]),
         ),
@@ -205,7 +167,53 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
   }
+
+  Widget slider() {
+    return Stack(children: [
+            CarouselSlider(
+              items: imageSliders,
+              carouselController: _controller,
+              options: CarouselOptions(
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  aspectRatio: 2.0,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
+            ),
+            Positioned(
+              bottom: 7,
+              right: 0,
+              left: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: imgList.asMap().entries.map((entry) {
+                  return GestureDetector(
+                    onTap: () => _controller.animateToPage(entry.key),
+                    child: Container(
+                      width: 8.0,
+                      height: 8.0,
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 2.0),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: (_current == entry.key
+                                  ? Colors.white
+                                  : Colors.black)
+                              .withOpacity(
+                                  _current == entry.key ? 0.9 : 0.3)),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ]);
+  }
 }
+
+
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({

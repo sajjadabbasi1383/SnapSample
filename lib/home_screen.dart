@@ -22,26 +22,22 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: DefaultTabController(
-      initialIndex: 3,
+      initialIndex: 0,
       length: 4,
       animationDuration: const Duration(milliseconds: 300),
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          bottom: const TabBar(
+          bottom:  TabBar(
             indicatorColor: Colors.black,
+            labelStyle: MyTextStyle.textStyle,
             labelColor: Colors.black,
             unselectedLabelColor: Colors.grey,
-            tabs: [
+            tabs: const [
               Tab(
-                  text: "سفارش ها",
+                  text: "خانه",
                   icon: Icon(
-                    Icons.shopping_cart_outlined,
-                  )),
-              Tab(
-                  text: "تخفیف ها",
-                  icon: Icon(
-                    Icons.discount_outlined,
+                    Icons.home,
                   )),
               Tab(
                   text: "اسنپ کلاب",
@@ -49,9 +45,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icons.diamond_outlined,
                   )),
               Tab(
-                  text: "خانه",
+                  text: "تخفیف ها",
                   icon: Icon(
-                    Icons.home,
+                    Icons.discount_outlined,
+                  )),
+              Tab(
+                  text: "سفارش ها",
+                  icon: Icon(
+                    Icons.shopping_cart_outlined,
                   )),
             ],
           ),
@@ -60,12 +61,17 @@ class _HomeScreenState extends State<HomeScreen> {
           automaticallyImplyLeading: false,
           title: Row(
             children: [
+              Image.asset(
+                Assets.images.logo.path,
+                width: 74,
+              ),
+              const Expanded(child: SizedBox.shrink()),
               const SizedBox(
-                width: 5,
+                width: 18,
               ),
               const Icon(
-                Icons.person_outline,
-                size: 25,
+                Icons.mail_outline,
+                size: 24,
                 color: Colors.black,
               ),
               const SizedBox(
@@ -80,27 +86,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 18,
               ),
               const Icon(
-                Icons.mail_outline,
-                size: 24,
+                Icons.person_outline,
+                size: 25,
                 color: Colors.black,
               ),
               const SizedBox(
-                width: 18,
-              ),
-              const Expanded(child: SizedBox.shrink()),
-              Image.asset(
-                Assets.images.logo.path,
-                width: 74,
+                width: 5,
               ),
             ],
           ),
         ),
         body: TabBarView(
           children: [
+            homePage(),
             const Tab(
-                text: "سفارش ها",
+                text: "اسنپ کلاب",
                 icon: Icon(
-                  Icons.shopping_cart_outlined,
+                  Icons.diamond_outlined,
                 )),
             const Tab(
                 text: "تخفیف ها",
@@ -108,11 +110,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Icons.discount_outlined,
                 )),
             const Tab(
-                text: "اسنپ کلاب",
+                text: "سفارش ها",
                 icon: Icon(
-                  Icons.diamond_outlined,
+                  Icons.shopping_cart_outlined,
                 )),
-            homePage()
           ],
         ),
       ),
@@ -123,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Stack(
       children: [
         SingleChildScrollView(
-          //TODO:physics: const BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -242,12 +243,25 @@ class BottomNavBar extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(Assets.icons.bike.path),
+                  SvgPicture.asset(Assets.icons.taxi.path),
                   const SizedBox(
-                    height: 2.7,
+                    height: 3,
                   ),
                   Text(
-                    "اسنپ باکس",
+                    "اسنپ",
+                    style: MyTextStyle.textStyle2,
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(Assets.icons.food.path),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    "غذا",
                     style: MyTextStyle.textStyle2,
                   ),
                 ],
@@ -274,25 +288,12 @@ class BottomNavBar extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(Assets.icons.food.path),
+                  SvgPicture.asset(Assets.icons.bike.path),
                   const SizedBox(
-                    height: 3,
+                    height: 2.7,
                   ),
                   Text(
-                    "غذا",
-                    style: MyTextStyle.textStyle2,
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(Assets.icons.taxi.path),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    "اسنپ",
+                    "اسنپ باکس",
                     style: MyTextStyle.textStyle2,
                   ),
                 ],

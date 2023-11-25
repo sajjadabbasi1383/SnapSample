@@ -5,38 +5,19 @@ import 'package:snap_map/gen/assets.gen.dart';
 
 List<Widget> gideViewItems = [
   Column(
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: [
-      const SizedBox(
-        height: 4.7,
-      ),
-      Image.asset(
-        Assets.icons.fdomT.path,
-        width: 53,
-      ),
-      const SizedBox(
-        height: 3,
-      ),
-      Text(
-        "بلیت سفر",
-        style: MyTextStyle.textStyle2,
-      ),
-    ],
-  ),
-  Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       // const SizedBox(
       //   height: 4.7,
       // ),
       SvgPicture.asset(
-        Assets.icons.shop.path,
+        Assets.icons.moving.path,
       ),
       const SizedBox(
         height: 3,
       ),
       Text(
-        "فروشگاه",
+        "وانت و کامیون",
         style: MyTextStyle.textStyle2,
       ),
     ],
@@ -66,67 +47,32 @@ List<Widget> gideViewItems = [
       //   height: 4.7,
       // ),
       SvgPicture.asset(
-        Assets.icons.moving.path,
+        Assets.icons.shop.path,
       ),
       const SizedBox(
         height: 3,
       ),
       Text(
-        "وانت و کامیون",
+        "فروشگاه",
         style: MyTextStyle.textStyle2,
       ),
     ],
   ),
   Column(
-    mainAxisAlignment: MainAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      // const SizedBox(
-      //   height: 4.7,
-      // ),
-      SvgPicture.asset(
-        Assets.icons.hotel.path,
+      const SizedBox(
+        height: 4.7,
+      ),
+      Image.asset(
+        Assets.icons.fdomT.path,
+        width: 53,
       ),
       const SizedBox(
         height: 3,
       ),
       Text(
-        "هتل",
-        style: MyTextStyle.textStyle2,
-      ),
-    ],
-  ),
-  Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      // const SizedBox(
-      //   height: 4.7,
-      // ),
-      SvgPicture.asset(
-        Assets.icons.pharmacy.path,
-      ),
-      const SizedBox(
-        height: 3,
-      ),
-      Text(
-        "داروخانه",
-        style: MyTextStyle.textStyle2,
-      ),
-    ],
-  ),
-  Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      // const SizedBox(
-      //   height: 4.7,
-      // ),
-      SvgPicture.asset(
-        Assets.icons.doctor.path,
-      ),
-      const SizedBox(
-        height: 3,
-      ),
-      Text(
-        "پزشک و مشاور",
+        "بلیت سفر",
         style: MyTextStyle.textStyle2,
       ),
     ],
@@ -156,13 +102,49 @@ List<Widget> gideViewItems = [
       //   height: 4.7,
       // ),
       SvgPicture.asset(
-        Assets.icons.investment.path,
+        Assets.icons.doctor.path,
       ),
       const SizedBox(
         height: 3,
       ),
       Text(
-        "سپرده گذاری",
+        "پزشک و مشاور",
+        style: MyTextStyle.textStyle2,
+      ),
+    ],
+  ),
+  Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      // const SizedBox(
+      //   height: 4.7,
+      // ),
+      SvgPicture.asset(
+        Assets.icons.pharmacy.path,
+      ),
+      const SizedBox(
+        height: 3,
+      ),
+      Text(
+        "داروخانه",
+        style: MyTextStyle.textStyle2,
+      ),
+    ],
+  ),
+  Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      // const SizedBox(
+      //   height: 4.7,
+      // ),
+      SvgPicture.asset(
+        Assets.icons.hotel.path,
+      ),
+      const SizedBox(
+        height: 3,
+      ),
+      Text(
+        "هتل",
         style: MyTextStyle.textStyle2,
       ),
     ],
@@ -171,17 +153,17 @@ List<Widget> gideViewItems = [
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       const SizedBox(
-        height: 4.7,
+        height: 7,
       ),
       Image.asset(
-        Assets.icons.insdiscount.path,
+        Assets.icons.line.path,
         width: 51,
       ),
       const SizedBox(
         height: 3,
       ),
       Text(
-        "بیمه",
+        "اسنپ لاین",
         style: MyTextStyle.textStyle2,
       ),
     ],
@@ -209,17 +191,35 @@ List<Widget> gideViewItems = [
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       const SizedBox(
-        height: 7,
+        height: 4.7,
       ),
       Image.asset(
-        Assets.icons.line.path,
+        Assets.icons.insdiscount.path,
         width: 51,
       ),
       const SizedBox(
         height: 3,
       ),
       Text(
-        "اسنپ لاین",
+        "بیمه",
+        style: MyTextStyle.textStyle2,
+      ),
+    ],
+  ),
+  Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      // const SizedBox(
+      //   height: 4.7,
+      // ),
+      SvgPicture.asset(
+        Assets.icons.investment.path,
+      ),
+      const SizedBox(
+        height: 3,
+      ),
+      Text(
+        "سپرده گذاری",
         style: MyTextStyle.textStyle2,
       ),
     ],
@@ -234,16 +234,16 @@ List<String> imgList = [
   Assets.images.bannerDisFood.path,
 ];
 List<String> imgFrameList = [
-  Assets.images.frameOther.path,
-  Assets.images.frameSalamat.path,
-  Assets.images.frameAjil.path,
-  Assets.images.frameAtari.path,
-  Assets.images.frameLabani.path,
-  Assets.images.frameFlower.path,
-  Assets.images.frameIce.path,
-  Assets.images.frameCafe.path,
-  Assets.images.frameShirini.path,
-  Assets.images.frameProto.path,
-  Assets.images.frameFrut.path,
   Assets.images.frameNan.path,
+  Assets.images.frameFrut.path,
+  Assets.images.frameProto.path,
+  Assets.images.frameShirini.path,
+  Assets.images.frameCafe.path,
+  Assets.images.frameIce.path,
+  Assets.images.frameFlower.path,
+  Assets.images.frameLabani.path,
+  Assets.images.frameAtari.path,
+  Assets.images.frameAjil.path,
+  Assets.images.frameSalamat.path,
+  Assets.images.frameOther.path,
 ];

@@ -7,7 +7,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snap_map/constant/dimens.dart';
 import 'package:snap_map/constant/my_text_style.dart';
-import 'package:snap_map/widget/back_button.dart';
+import 'package:snap_map/widget/my_widget.dart';
 
 class CurrentWidgetState {
   CurrentWidgetState._();

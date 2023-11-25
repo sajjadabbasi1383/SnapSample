@@ -21,11 +21,13 @@ class _LoginPageState extends State<LoginPage> {
       _obscureSignInText = !_obscureSignInText;
     });
   }
+
   void _toggleSignUp() {
     setState(() {
       _obscureSignUpText = !_obscureSignUpText;
     });
   }
+
   void _toggleSignUpConfirm() {
     setState(() {
       _obscureSignUpConfirmText = !_obscureSignUpConfirmText;
@@ -88,21 +90,8 @@ class _LoginPageState extends State<LoginPage> {
                   }
                   //return null;
                 },
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      borderSide:
-                      const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      borderSide:
-                      const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      borderSide:
-                      const BorderSide(color: Color(0xFF0ce369), width: 2.0)),
+                decoration: const InputDecoration(
                   hintText: 'Email',
-                  contentPadding: const EdgeInsets.all(25.0),
                 ),
               ),
             ),
@@ -122,27 +111,20 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 obscureText: _obscureSignInText,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      borderSide:
-                      const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      borderSide:
-                      const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                      borderSide:
-                      const BorderSide(color: Color(0xFF0ce369), width: 2.0)),
                   hintText: 'Password',
-                  contentPadding: const EdgeInsets.all(25.0),
                   suffixIcon: Container(
-                    margin:  const EdgeInsets.only(right: 20.0),
-                    child:  IconButton(
+                    margin: const EdgeInsets.only(right: 20.0),
+                    child: IconButton(
                       onPressed: () {
                         _toggleSignIn();
                       },
-                      icon: _obscureSignInText? const Icon(Icons.visibility_sharp,):const Icon(Icons.visibility_off,),
+                      icon: _obscureSignInText
+                          ? const Icon(
+                              Icons.visibility_sharp,
+                            )
+                          : const Icon(
+                              Icons.visibility_off,
+                            ),
                       color: Colors.black87,
                     ),
                   ),
@@ -178,7 +160,10 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(35.0),
                   ),
                 ),
-                child: const Text('Sign In',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                child: const Text(
+                  'Sign In',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             Row(
@@ -222,21 +207,8 @@ class _LoginPageState extends State<LoginPage> {
                 }
                 //return null;
               },
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFF0ce369), width: 2.0)),
+              decoration: const InputDecoration(
                 hintText: 'Email',
-                contentPadding: const EdgeInsets.all(25.0),
               ),
             ),
           ),
@@ -256,27 +228,20 @@ class _LoginPageState extends State<LoginPage> {
                 //return null;
               },
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFF0ce369), width: 2.0)),
                 hintText: 'Password',
-                contentPadding: const EdgeInsets.all(25.0),
                 suffixIcon: Container(
-                  margin:  const EdgeInsets.only(right: 20.0),
-                  child:  IconButton(
+                  margin: const EdgeInsets.only(right: 20.0),
+                  child: IconButton(
                     onPressed: () {
                       _toggleSignUp();
                     },
-                    icon: _obscureSignUpText? const Icon(Icons.visibility_sharp,):const Icon(Icons.visibility_off,),
+                    icon: _obscureSignUpText
+                        ? const Icon(
+                            Icons.visibility_sharp,
+                          )
+                        : const Icon(
+                            Icons.visibility_off,
+                          ),
                     color: Colors.black87,
                   ),
                 ),
@@ -299,27 +264,20 @@ class _LoginPageState extends State<LoginPage> {
                 //return null;
               },
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFFF1F1FB), width: 2.0)),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide:
-                        const BorderSide(color: Color(0xFF0ce369), width: 2.0)),
                 hintText: 'Confirm Password',
-                contentPadding: const EdgeInsets.all(25.0),
                 suffixIcon: Container(
-                  margin:  const EdgeInsets.only(right: 20.0),
-                  child:  IconButton(
+                  margin: const EdgeInsets.only(right: 20.0),
+                  child: IconButton(
                     onPressed: () {
                       _toggleSignUpConfirm();
                     },
-                    icon: _obscureSignUpConfirmText? const Icon(Icons.visibility_sharp,):const Icon(Icons.visibility_off,),
+                    icon: _obscureSignUpConfirmText
+                        ? const Icon(
+                            Icons.visibility_sharp,
+                          )
+                        : const Icon(
+                            Icons.visibility_off,
+                          ),
                     color: Colors.black87,
                   ),
                 ),
@@ -349,7 +307,10 @@ class _LoginPageState extends State<LoginPage> {
                   borderRadius: BorderRadius.circular(35.0),
                 ),
               ),
-              child: const Text('Sign UP',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+              child: const Text(
+                'Sign UP',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           Row(
@@ -372,12 +333,5 @@ class _LoginPageState extends State<LoginPage> {
         ],
       ),
     );
-
-
   }
-
-
-
 }
-
-

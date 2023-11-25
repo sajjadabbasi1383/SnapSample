@@ -8,6 +8,8 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
@@ -17,72 +19,74 @@ class $AssetsIconsGen {
       const AssetGenImage('assets/icons/Corporate.png');
 
   /// File path: assets/icons/Credit.svg
-  String get credit => 'assets/icons/Credit.svg';
+  SvgGenImage get credit => const SvgGenImage('assets/icons/Credit.svg');
 
   /// File path: assets/icons/Line.png
   AssetGenImage get line => const AssetGenImage('assets/icons/Line.png');
 
   /// File path: assets/icons/bike.svg
-  String get bike => 'assets/icons/bike.svg';
+  SvgGenImage get bike => const SvgGenImage('assets/icons/bike.svg');
 
   /// File path: assets/icons/bus.svg
-  String get bus => 'assets/icons/bus.svg';
+  SvgGenImage get bus => const SvgGenImage('assets/icons/bus.svg');
 
   /// File path: assets/icons/club.svg
-  String get club => 'assets/icons/club.svg';
+  SvgGenImage get club => const SvgGenImage('assets/icons/club.svg');
 
   /// File path: assets/icons/destination.svg
-  String get destination => 'assets/icons/destination.svg';
+  SvgGenImage get destination =>
+      const SvgGenImage('assets/icons/destination.svg');
 
   /// File path: assets/icons/doctor.svg
-  String get doctor => 'assets/icons/doctor.svg';
+  SvgGenImage get doctor => const SvgGenImage('assets/icons/doctor.svg');
 
   /// File path: assets/icons/driver.svg
-  String get driver => 'assets/icons/driver.svg';
+  SvgGenImage get driver => const SvgGenImage('assets/icons/driver.svg');
 
   /// File path: assets/icons/fdom-t.png
   AssetGenImage get fdomT => const AssetGenImage('assets/icons/fdom-t.png');
 
   /// File path: assets/icons/food.svg
-  String get food => 'assets/icons/food.svg';
+  SvgGenImage get food => const SvgGenImage('assets/icons/food.svg');
 
   /// File path: assets/icons/hotel.svg
-  String get hotel => 'assets/icons/hotel.svg';
+  SvgGenImage get hotel => const SvgGenImage('assets/icons/hotel.svg');
 
   /// File path: assets/icons/insdiscount.png
   AssetGenImage get insdiscount =>
       const AssetGenImage('assets/icons/insdiscount.png');
 
   /// File path: assets/icons/intflight.svg
-  String get intflight => 'assets/icons/intflight.svg';
+  SvgGenImage get intflight => const SvgGenImage('assets/icons/intflight.svg');
 
   /// File path: assets/icons/investment.svg
-  String get investment => 'assets/icons/investment.svg';
+  SvgGenImage get investment =>
+      const SvgGenImage('assets/icons/investment.svg');
 
   /// File path: assets/icons/moving.svg
-  String get moving => 'assets/icons/moving.svg';
+  SvgGenImage get moving => const SvgGenImage('assets/icons/moving.svg');
 
   /// File path: assets/icons/origin.svg
-  String get origin => 'assets/icons/origin.svg';
+  SvgGenImage get origin => const SvgGenImage('assets/icons/origin.svg');
 
   /// File path: assets/icons/pharmacy.svg
-  String get pharmacy => 'assets/icons/pharmacy.svg';
+  SvgGenImage get pharmacy => const SvgGenImage('assets/icons/pharmacy.svg');
 
   /// File path: assets/icons/pickup.svg
-  String get pickup => 'assets/icons/pickup.svg';
+  SvgGenImage get pickup => const SvgGenImage('assets/icons/pickup.svg');
 
   /// File path: assets/icons/shop.svg
-  String get shop => 'assets/icons/shop.svg';
+  SvgGenImage get shop => const SvgGenImage('assets/icons/shop.svg');
 
   /// File path: assets/icons/spdiscount.png
   AssetGenImage get spdiscount =>
       const AssetGenImage('assets/icons/spdiscount.png');
 
   /// File path: assets/icons/taxi.svg
-  String get taxi => 'assets/icons/taxi.svg';
+  SvgGenImage get taxi => const SvgGenImage('assets/icons/taxi.svg');
 
   /// File path: assets/icons/train.svg
-  String get train => 'assets/icons/train.svg';
+  SvgGenImage get train => const SvgGenImage('assets/icons/train.svg');
 
   /// List of all assets
   List<dynamic> get values => [
@@ -307,6 +311,59 @@ class AssetGenImage {
       _assetName,
       bundle: bundle,
       package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class SvgGenImage {
+  const SvgGenImage(this._assetName);
+
+  final String _assetName;
+
+  SvgPicture svg({
+    Key? key,
+    bool matchTextDirection = false,
+    AssetBundle? bundle,
+    String? package,
+    double? width,
+    double? height,
+    BoxFit fit = BoxFit.contain,
+    AlignmentGeometry alignment = Alignment.center,
+    bool allowDrawingOutsideViewBox = false,
+    WidgetBuilder? placeholderBuilder,
+    String? semanticsLabel,
+    bool excludeFromSemantics = false,
+    SvgTheme theme = const SvgTheme(),
+    ColorFilter? colorFilter,
+    Clip clipBehavior = Clip.hardEdge,
+    @deprecated Color? color,
+    @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
+    @deprecated bool cacheColorFilter = false,
+  }) {
+    return SvgPicture.asset(
+      _assetName,
+      key: key,
+      matchTextDirection: matchTextDirection,
+      bundle: bundle,
+      package: package,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
+      placeholderBuilder: placeholderBuilder,
+      semanticsLabel: semanticsLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      theme: theme,
+      colorFilter: colorFilter,
+      color: color,
+      colorBlendMode: colorBlendMode,
+      clipBehavior: clipBehavior,
+      cacheColorFilter: cacheColorFilter,
     );
   }
 

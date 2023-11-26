@@ -159,12 +159,34 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             slider(),
             const CategoryListView(),
-            const SquareContainerRow(),
-             DiscountListView(context: context),
-            const SizedBox(
-              height: 200,
+            const SquareContainerColumn(),
+            DiscountListView(context: context),
+            const SquareContainerRow(color: Colors.pinkAccent, title: 'افزایش فروش با اسنپ',),
+            DetailBanner(iconUrl: Assets.icons.food2.path, title: 'فروش بیشتر با ایجاد شعبه در اسنپ', imgUrl: Assets.images.bannerSell.path, buttonTitle: 'ثبت نام کنید',),
+            const SquareContainerRow(color: Colors.blue, title: 'قابلیت جدید پرداخت',),
+            DetailBanner(iconUrl: Assets.icons.pay.path, title: 'با پرداخت مستقیم', imgUrl: Assets.images.bannerPay.path, buttonTitle: 'فعال کنید',),
+             const SizedBox(
+              height: 130,
             ),
           ]),
+        ),
+        Positioned(
+          bottom: 0,
+          right: 0,
+          left: 0,
+          child: Container(
+            height: MediaQuery.of(context).size.height / 10,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(0, 255, 255, 255),
+                  Color.fromARGB(255, 255, 255, 255)
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
         ),
         const BottomNavBar(),
       ],

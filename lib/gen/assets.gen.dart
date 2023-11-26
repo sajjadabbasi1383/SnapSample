@@ -68,6 +68,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/food.svg
   SvgGenImage get food => const SvgGenImage('assets/icons/food.svg');
 
+  /// File path: assets/icons/food2.png
+  AssetGenImage get food2 => const AssetGenImage('assets/icons/food2.png');
+
   /// File path: assets/icons/gem.png
   AssetGenImage get gem => const AssetGenImage('assets/icons/gem.png');
 
@@ -94,6 +97,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/origin.svg
   SvgGenImage get origin => const SvgGenImage('assets/icons/origin.svg');
+
+  /// File path: assets/icons/pay.png
+  AssetGenImage get pay => const AssetGenImage('assets/icons/pay.png');
 
   /// File path: assets/icons/pharmacy.svg
   SvgGenImage get pharmacy => const SvgGenImage('assets/icons/pharmacy.svg');
@@ -144,6 +150,7 @@ class $AssetsIconsGen {
         driver,
         fdomT,
         food,
+        food2,
         gem,
         hotel,
         insdiscount,
@@ -152,6 +159,7 @@ class $AssetsIconsGen {
         investment,
         moving,
         origin,
+        pay,
         pharmacy,
         pickup,
         shop,
@@ -166,6 +174,10 @@ class $AssetsIconsGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/BannerSell.jpg
+  AssetGenImage get bannerSell =>
+      const AssetGenImage('assets/images/BannerSell.jpg');
 
   /// File path: assets/images/BimeMobile.png
   AssetGenImage get bimeMobile =>
@@ -278,6 +290,10 @@ class $AssetsImagesGen {
   AssetGenImage get bannerMazMaz =>
       const AssetGenImage('assets/images/bannerMazMaz.jpg');
 
+  /// File path: assets/images/bannerPay.jpg
+  AssetGenImage get bannerPay =>
+      const AssetGenImage('assets/images/bannerPay.jpg');
+
   /// File path: assets/images/bannerQest.png
   AssetGenImage get bannerQest =>
       const AssetGenImage('assets/images/bannerQest.png');
@@ -302,6 +318,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        bannerSell,
         bimeMobile,
         bus,
         flight,
@@ -331,6 +348,7 @@ class $AssetsImagesGen {
         bannerHaraj,
         bannerHaraj2,
         bannerMazMaz,
+        bannerPay,
         bannerQest,
         golsetan,
         intflight,

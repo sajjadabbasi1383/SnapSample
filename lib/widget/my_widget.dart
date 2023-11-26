@@ -5,6 +5,7 @@ import '../constant/dimens.dart';
 import '../constant/my_text_style.dart';
 import '../gen/assets.gen.dart';
 import '../model/model.dart';
+
 class CategoryListView extends StatelessWidget {
   const CategoryListView({
     super.key,
@@ -13,7 +14,7 @@ class CategoryListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  const EdgeInsets.fromLTRB(22,2,22,2),
+      padding: const EdgeInsets.fromLTRB(22, 2, 22, 2),
       child: SizedBox(
         height: 100,
         child: ListView.builder(
@@ -23,7 +24,11 @@ class CategoryListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: Image.asset(imgFrameList[index],height: 100,width: 100,),
+              child: Image.asset(
+                imgFrameList[index],
+                height: 100,
+                width: 100,
+              ),
             );
           },
         ),
@@ -33,7 +38,6 @@ class CategoryListView extends StatelessWidget {
 }
 
 class MyBackButton extends StatelessWidget {
-
   final Function() onPressed;
 
   const MyBackButton({super.key, required this.onPressed});
@@ -51,13 +55,10 @@ class MyBackButton extends StatelessWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                  color: Colors.black26,
-                  offset: Offset(2,3),
-                  blurRadius: 18
-              )
-            ]
-        ),
-        child: IconButton(onPressed: onPressed,icon: const Icon(Icons.arrow_back)),
+                  color: Colors.black26, offset: Offset(2, 3), blurRadius: 18)
+            ]),
+        child: IconButton(
+            onPressed: onPressed, icon: const Icon(Icons.arrow_back)),
       ),
     );
   }
@@ -153,8 +154,8 @@ class BottomNavBar extends StatelessWidget {
   }
 }
 
-class SquareContainerRow extends StatelessWidget {
-  const SquareContainerRow({
+class SquareContainerColumn extends StatelessWidget {
+  const SquareContainerColumn({
     super.key,
   });
 
@@ -179,7 +180,9 @@ class SquareContainerRow extends StatelessWidget {
                         borderRadius: BorderRadius.circular(3),
                       ),
                     ),
-                    const SizedBox(width: 6,),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     const Text(
                       "به دلخواه خود تخفیف بگیرید",
                     ),
@@ -191,13 +194,59 @@ class SquareContainerRow extends StatelessWidget {
                 ),
               ],
             ),
-             const SizedBox(height: 8,),
-             Align(
+            const SizedBox(
+              height: 8,
+            ),
+            Align(
               alignment: Alignment.centerRight,
               child: Text(
                 "انتخاب از بین پیشنهاد های متنوع",
                 style: MyTextStyle.textStyle2,
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SquareContainerRow extends StatelessWidget {
+  final Color color;
+  final String title;
+
+  const SquareContainerRow({
+    required this.color,
+    required this.title,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(22, 5, 22, 5),
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  height: 16,
+                  width: 16,
+                  decoration: BoxDecoration(
+                    color: color,
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  title,
+                ),
+              ],
             ),
           ],
         ),
@@ -219,7 +268,7 @@ class DiscountListView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(5, 5, 12, 10),
       child: SizedBox(
-          height: MediaQuery.of(context).size.height/3.1,
+          height: MediaQuery.of(context).size.height / 3,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
@@ -228,29 +277,45 @@ class DiscountListView extends StatelessWidget {
               return Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    width: MediaQuery.of(context).size.width/1.5,
-                    height: MediaQuery.of(context).size.height/3.2,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    height: MediaQuery.of(context).size.height / 3.2,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15),
-                        boxShadow: const [BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 10,
-                        )]
-                    ),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 10,
+                          )
+                        ]),
                     child: Column(
                       children: [
                         ClipRRect(
-                            borderRadius: const BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
-                            child: Image.asset(discountListItems[index].imgUrl,)),
+                            borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(15),
+                                topLeft: Radius.circular(15)),
+                            child: Image.asset(
+                              discountListItems[index].imgUrl,
+                              height: MediaQuery.of(context).size.height / 6.5,
+                              width: MediaQuery.of(context).size.width / 1.3,
+                              fit: BoxFit.fill,
+                            )),
                         Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Image.asset(discountListItems[index].iconUrl,width: 37,),
-                              const SizedBox(width: 8,),
-                              Text(discountListItems[index].title,style: MyTextStyle.textStyle3,)
+                              Image.asset(
+                                discountListItems[index].iconUrl,
+                                width: 37,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              Text(
+                                discountListItems[index].title,
+                                style: MyTextStyle.textStyle3,
+                              )
                             ],
                           ),
                         ),
@@ -258,14 +323,22 @@ class DiscountListView extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 6.0),
                           child: Row(
                             children: [
-                              Image.asset(Assets.icons.gem.path,width: 15,),
-                              const SizedBox(width: 7,),
+                              Image.asset(
+                                Assets.icons.gem.path,
+                                width: 15,
+                              ),
+                              const SizedBox(
+                                width: 7,
+                              ),
                               Container(
                                   decoration: BoxDecoration(
                                     color: Colors.black12,
                                     borderRadius: BorderRadius.circular(5),
                                   ),
-                                  child: Text("امتیاز مورد نیاز: ${discountListItems[index].score}",style: MyTextStyle.textStyle2,))
+                                  child: Text(
+                                    "امتیاز مورد نیاز: ${discountListItems[index].score}",
+                                    style: MyTextStyle.textStyle2,
+                                  ))
                             ],
                           ),
                         ),
@@ -273,92 +346,110 @@ class DiscountListView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Text("امتیاز کافی برای دریافت کد",style: MyTextStyle.textStyle3,),
-                            const Text("مشاهده",style: TextStyle(color: Colors.green),),
+                            Text(
+                              "امتیاز کافی برای دریافت کد",
+                              style: MyTextStyle.textStyle3,
+                            ),
+                            const Text(
+                              "مشاهده",
+                              style: TextStyle(color: Colors.green),
+                            ),
                           ],
                         ),
                       ],
                     ),
-                  )
-              );
-            },)),
+                  ));
+            },
+          )),
     );
   }
 }
 
-
-class DiscountListItem extends StatelessWidget {
-
+class DetailBanner extends StatelessWidget {
   final String iconUrl;
   final String title;
-  final String score;
+  final String buttonTitle;
   final String imgUrl;
 
-  const DiscountListItem({
+  const DetailBanner({
     required this.iconUrl,
     required this.title,
     required this.imgUrl,
-    required this.score,
+    required this.buttonTitle,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Container(
-        width: MediaQuery.of(context).size.width/1.5,
-        height: MediaQuery.of(context).size.height/3.2,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: const [BoxShadow(
-            color: Colors.black26,
-            blurRadius: 10,
-          )]
-        ),
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: const BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15)),
-                child: Image.asset(imgUrl,)),
-            Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(iconUrl,width: 37,),
-                  const SizedBox(width: 8,),
-                  Text(title,style: MyTextStyle.textStyle3,)
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 6.0),
-              child: Row(
-                children: [
-                  Image.asset(Assets.icons.gem.path,width: 15,),
-                  const SizedBox(width: 7,),
-                  Container(
-                      decoration: BoxDecoration(
-                        color: Colors.black12,
-                        borderRadius: BorderRadius.circular(5),
+        padding: const EdgeInsets.all(10),
+        child: Container(
+          width: MediaQuery.of(context).size.width / 1.1,
+          height: MediaQuery.of(context).size.height / 4.6,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 20,
+                )
+              ]),
+          child: Column(
+            children: [
+              ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(15),
+                      topLeft: Radius.circular(15)),
+                  child: Image.asset(
+                    imgUrl,
+                    width: MediaQuery.of(context).size.width / 1.1,
+                    height: MediaQuery.of(context).size.height / 7.5,
+                    fit: BoxFit.fill,
+                  )),
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset(
+                          iconUrl,
+                          width: 28,
+                        ),
+                        const SizedBox(
+                          width: 6,
+                        ),
+                        Text(
+                          title,
+                          style: MyTextStyle.textStyle3,
+                        ),
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: const ButtonStyle(
+                          side: MaterialStatePropertyAll(
+                            BorderSide(width: 1.2, color: Colors.green),
+                          ),
+                          maximumSize: MaterialStatePropertyAll(Size(104, 30)),
+                          minimumSize: MaterialStatePropertyAll(Size(104, 30)),
+                          backgroundColor:
+                              MaterialStatePropertyAll(Colors.white),
+                          textStyle: MaterialStatePropertyAll(
+                              TextStyle(fontFamily: "Vazir")),
+                          foregroundColor:
+                              MaterialStatePropertyAll(Colors.green)),
+                      child: Text(
+                        buttonTitle,
                       ),
-                      child: Text("امتیاز مورد نیاز: $score",style: MyTextStyle.textStyle2,))
-                ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const Divider(color: Colors.black38),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text("امتیاز کافی برای دریافت کد",style: MyTextStyle.textStyle3,),
-                const Text("مشاهده",style: TextStyle(color: Colors.green),),
-              ],
-            ),
-          ],
-        ),
-      )
-    );
+            ],
+          ),
+        ));
   }
 }

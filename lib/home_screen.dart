@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:snap_map/constant/my_text_style.dart';
 import 'package:snap_map/gen/assets.gen.dart';
 import 'package:snap_map/widget/my_widget.dart';
@@ -125,7 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
       children: [
         SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
-          child: Column(children: [
+          child: Column(
+              children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
@@ -134,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(13),
                     image: DecorationImage(
-                        image: AssetImage(Assets.images.bannerHaraj.path),
+                        image: AssetImage(Assets.images.bannerQest.path),
                         fit: BoxFit.fill)),
               ),
             ),
@@ -159,6 +159,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             slider(),
             const CategoryListView(),
+            const SquareContainerRow(),
+             DiscountListView(context: context),
             const SizedBox(
               height: 200,
             ),
@@ -211,98 +213,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ]);
-  }
-}
-
-
-
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 20,
-      left: 0,
-      right: 0,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 40, left: 40),
-        child: Container(
-          height: 90,
-          decoration: BoxDecoration(boxShadow: const [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 30,
-            )
-          ], borderRadius: BorderRadius.circular(18), color: Colors.white),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(Assets.icons.taxi.path),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    "اسنپ",
-                    style: MyTextStyle.textStyle2,
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(Assets.icons.food.path),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    "غذا",
-                    style: MyTextStyle.textStyle2,
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 4.7,
-                  ),
-                  Image.asset(
-                    Assets.icons.spdiscount.path,
-                    width: 52.2,
-                  ),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    "سوپرمارکت",
-                    style: MyTextStyle.textStyle2,
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(Assets.icons.bike.path),
-                  const SizedBox(
-                    height: 2.7,
-                  ),
-                  Text(
-                    "اسنپ باکس",
-                    style: MyTextStyle.textStyle2,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 }
 

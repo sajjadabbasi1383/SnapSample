@@ -247,3 +247,30 @@ List<String> imgFrameList = [
   Assets.images.frameSalamat.path,
   Assets.images.frameOther.path,
 ];
+
+
+class DiscountListItemModel{
+   late String iconUrl;
+   late String title;
+   late String score;
+   late String imgUrl;
+
+   DiscountListItemModel({required this.iconUrl,
+     required this.title,
+     required this.imgUrl,
+     required this.score,});
+}
+
+List<DiscountListItemModel> discountListItems=[
+  DiscountListItemModel(imgUrl: Assets.images.mizban.path,title: "رزرو هتل میزبان بابلسر",score: "1200",iconUrl: Assets.icons.hotel2.path,),
+  DiscountListItemModel(imgUrl: Assets.images.bimeMobile.path,title: "بیمه موبایل",score: "1200",iconUrl: Assets.icons.insurance.path,),
+  DiscountListItemModel(imgUrl: Assets.images.hotel.path,title: "اولین رزرو هتل",score: "1000",iconUrl: Assets.icons.hotel2.path,),
+  DiscountListItemModel(imgUrl: Assets.images.flight.path,title: "اولین بلیت پرواز داخلی",score: "1200",iconUrl: Assets.icons.flight.path,),
+  DiscountListItemModel(imgUrl: Assets.images.sibApp.path,title: "اشتراک سیب اپ",score: "1000",iconUrl: Assets.icons.sibApp.path,),
+  DiscountListItemModel(imgUrl: Assets.images.wistore.path,title: "خرید اینترنتی هدیه از ویستور",score: "1000",iconUrl: Assets.icons.vistor.path,),
+  DiscountListItemModel(imgUrl: Assets.images.loyaltyClubTrain.path,title: "اولین بلیت قطار",score: "1500",iconUrl: Assets.icons.snapptripTrain.path,),
+  DiscountListItemModel(imgUrl: Assets.images.taghcheBanner.path,title: "اشتراک طاقچه",score: "1200",iconUrl: Assets.icons.taghche2.path,),
+  DiscountListItemModel(imgUrl: Assets.images.golsetan.path,title: "خرید گل و گیاه از گلستان",score: "1000",iconUrl: Assets.icons.golsetan.path,),
+  DiscountListItemModel(imgUrl: Assets.images.bus.path,title: "خرید بلیت اتوبوس",score: "1000",iconUrl: Assets.icons.bus2.path,),
+  DiscountListItemModel(imgUrl: Assets.images.intflight.path,title: "اولین بلیط پرواز خارجی",score: "1500",iconUrl: Assets.icons.flight2.path,),
+];

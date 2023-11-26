@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Bus2.png
+  AssetGenImage get bus2 => const AssetGenImage('assets/icons/Bus2.png');
+
   /// File path: assets/icons/Corporate.png
   AssetGenImage get corporate =>
       const AssetGenImage('assets/icons/Corporate.png');
@@ -21,8 +24,24 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Credit.svg
   SvgGenImage get credit => const SvgGenImage('assets/icons/Credit.svg');
 
+  /// File path: assets/icons/Flight.png
+  AssetGenImage get flight => const AssetGenImage('assets/icons/Flight.png');
+
+  /// File path: assets/icons/Flight2.png
+  AssetGenImage get flight2 => const AssetGenImage('assets/icons/Flight2.png');
+
+  /// File path: assets/icons/Golsetan.png
+  AssetGenImage get golsetan =>
+      const AssetGenImage('assets/icons/Golsetan.png');
+
+  /// File path: assets/icons/Hotel2.png
+  AssetGenImage get hotel2 => const AssetGenImage('assets/icons/Hotel2.png');
+
   /// File path: assets/icons/Line.png
   AssetGenImage get line => const AssetGenImage('assets/icons/Line.png');
+
+  /// File path: assets/icons/Vistor.png
+  AssetGenImage get vistor => const AssetGenImage('assets/icons/Vistor.png');
 
   /// File path: assets/icons/bike.svg
   SvgGenImage get bike => const SvgGenImage('assets/icons/bike.svg');
@@ -49,12 +68,19 @@ class $AssetsIconsGen {
   /// File path: assets/icons/food.svg
   SvgGenImage get food => const SvgGenImage('assets/icons/food.svg');
 
+  /// File path: assets/icons/gem.png
+  AssetGenImage get gem => const AssetGenImage('assets/icons/gem.png');
+
   /// File path: assets/icons/hotel.svg
   SvgGenImage get hotel => const SvgGenImage('assets/icons/hotel.svg');
 
   /// File path: assets/icons/insdiscount.png
   AssetGenImage get insdiscount =>
       const AssetGenImage('assets/icons/insdiscount.png');
+
+  /// File path: assets/icons/insurance.png
+  AssetGenImage get insurance =>
+      const AssetGenImage('assets/icons/insurance.png');
 
   /// File path: assets/icons/intflight.svg
   SvgGenImage get intflight => const SvgGenImage('assets/icons/intflight.svg');
@@ -78,9 +104,20 @@ class $AssetsIconsGen {
   /// File path: assets/icons/shop.svg
   SvgGenImage get shop => const SvgGenImage('assets/icons/shop.svg');
 
+  /// File path: assets/icons/sibApp.png
+  AssetGenImage get sibApp => const AssetGenImage('assets/icons/sibApp.png');
+
+  /// File path: assets/icons/snapptrip-train.png
+  AssetGenImage get snapptripTrain =>
+      const AssetGenImage('assets/icons/snapptrip-train.png');
+
   /// File path: assets/icons/spdiscount.png
   AssetGenImage get spdiscount =>
       const AssetGenImage('assets/icons/spdiscount.png');
+
+  /// File path: assets/icons/taghche2.png
+  AssetGenImage get taghche2 =>
+      const AssetGenImage('assets/icons/taghche2.png');
 
   /// File path: assets/icons/taxi.svg
   SvgGenImage get taxi => const SvgGenImage('assets/icons/taxi.svg');
@@ -90,9 +127,15 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        bus2,
         corporate,
         credit,
+        flight,
+        flight2,
+        golsetan,
+        hotel2,
         line,
+        vistor,
         bike,
         bus,
         club,
@@ -101,8 +144,10 @@ class $AssetsIconsGen {
         driver,
         fdomT,
         food,
+        gem,
         hotel,
         insdiscount,
+        insurance,
         intflight,
         investment,
         moving,
@@ -110,7 +155,10 @@ class $AssetsIconsGen {
         pharmacy,
         pickup,
         shop,
+        sibApp,
+        snapptripTrain,
         spdiscount,
+        taghche2,
         taxi,
         train
       ];
@@ -118,6 +166,16 @@ class $AssetsIconsGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/BimeMobile.png
+  AssetGenImage get bimeMobile =>
+      const AssetGenImage('assets/images/BimeMobile.png');
+
+  /// File path: assets/images/Bus.jpg
+  AssetGenImage get bus => const AssetGenImage('assets/images/Bus.jpg');
+
+  /// File path: assets/images/Flight.jpg
+  AssetGenImage get flight => const AssetGenImage('assets/images/Flight.jpg');
 
   /// File path: assets/images/FrameAjil.png
   AssetGenImage get frameAjil =>
@@ -167,6 +225,19 @@ class $AssetsImagesGen {
   AssetGenImage get frameShirini =>
       const AssetGenImage('assets/images/FrameShirini.png');
 
+  /// File path: assets/images/Hotel.jpg
+  AssetGenImage get hotel => const AssetGenImage('assets/images/Hotel.jpg');
+
+  /// File path: assets/images/Loyalty-Club-Train.jpg
+  AssetGenImage get loyaltyClubTrain =>
+      const AssetGenImage('assets/images/Loyalty-Club-Train.jpg');
+
+  /// File path: assets/images/Sib-App.jpg
+  AssetGenImage get sibApp => const AssetGenImage('assets/images/Sib-App.jpg');
+
+  /// File path: assets/images/Wistore.jpg
+  AssetGenImage get wistore => const AssetGenImage('assets/images/Wistore.jpg');
+
   /// File path: assets/images/bannerBina.jpg
   AssetGenImage get bannerBina =>
       const AssetGenImage('assets/images/bannerBina.jpg');
@@ -207,11 +278,33 @@ class $AssetsImagesGen {
   AssetGenImage get bannerMazMaz =>
       const AssetGenImage('assets/images/bannerMazMaz.jpg');
 
+  /// File path: assets/images/bannerQest.png
+  AssetGenImage get bannerQest =>
+      const AssetGenImage('assets/images/bannerQest.png');
+
+  /// File path: assets/images/golsetan.jpg
+  AssetGenImage get golsetan =>
+      const AssetGenImage('assets/images/golsetan.jpg');
+
+  /// File path: assets/images/intflight.jpg
+  AssetGenImage get intflight =>
+      const AssetGenImage('assets/images/intflight.jpg');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/mizban.jpg
+  AssetGenImage get mizban => const AssetGenImage('assets/images/mizban.jpg');
+
+  /// File path: assets/images/taghche-banner.jpg
+  AssetGenImage get taghcheBanner =>
+      const AssetGenImage('assets/images/taghche-banner.jpg');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+        bimeMobile,
+        bus,
+        flight,
         frameAjil,
         frameAtari,
         frameCafe,
@@ -224,6 +317,10 @@ class $AssetsImagesGen {
         frameProto,
         frameSalamat,
         frameShirini,
+        hotel,
+        loyaltyClubTrain,
+        sibApp,
+        wistore,
         bannerBina,
         bannerBlacFri,
         bannerCompany,
@@ -234,7 +331,12 @@ class $AssetsImagesGen {
         bannerHaraj,
         bannerHaraj2,
         bannerMazMaz,
-        logo
+        bannerQest,
+        golsetan,
+        intflight,
+        logo,
+        mizban,
+        taghcheBanner
       ];
 }
 

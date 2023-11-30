@@ -76,38 +76,38 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
           currentWidget(),
-          Visibility(
-            visible: visibleBackButton,
-            child: MyBackButton(
-              onPressed: () {
+          MyBackButton(
+            onPressed: () {
 
-                  switch(currentWidgetList.last){
-                    case CurrentWidgetState.stateSelectDestination:
-                      mapController.removeMarker(geoPoint.last);
-                      geoPoint.removeLast();
-                      markerIcon=SvgPicture.asset(
-                        "assets/icons/origin.svg",
-                        height: 110,
-                        width: 44,
-                      );
-                      mapController.init();
-                      visibleBackButton=false;
+                switch(currentWidgetList.last){
+                  case CurrentWidgetState.stateSelectOrigin:
+                    currentWidgetList.clear();
+                    Navigator.pop(context);
                     break;
-                    case CurrentWidgetState.stateRequestDriver:
-                      mapController.advancedPositionPicker();
-                      mapController.removeMarker(geoPoint.last);
-                      geoPoint.removeLast();
-                      markerIcon=destMarkerIcon;
-                      mapController.zoomIn();
-                    break;
-                  }
+                  case CurrentWidgetState.stateSelectDestination:
+                    mapController.removeMarker(geoPoint.last);
+                    geoPoint.removeLast();
+                    markerIcon=SvgPicture.asset(
+                      "assets/icons/origin.svg",
+                      height: 110,
+                      width: 44,
+                    );
+                    mapController.init();
+                  break;
+                  case CurrentWidgetState.stateRequestDriver:
+                    mapController.advancedPositionPicker();
+                    mapController.removeMarker(geoPoint.last);
+                    geoPoint.removeLast();
+                    markerIcon=destMarkerIcon;
+                    mapController.zoomIn();
+                  break;
+                }
 
-                  setState(() {
-                    currentWidgetList.removeLast();
-                  });
+                setState(() {
+                  currentWidgetList.removeLast();
+                });
 
-              },
-            ),
+            },
           ),
         ],
       ),

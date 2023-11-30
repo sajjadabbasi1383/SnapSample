@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:snap_map/map_screen.dart';
 
 import '../constant/dimens.dart';
 import '../constant/my_text_style.dart';
@@ -46,7 +47,7 @@ class MyBackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: Dimens.medium,
-      left: Dimens.medium,
+      right: Dimens.medium,
       child: Container(
         width: 55,
         height: 55,
@@ -88,18 +89,21 @@ class BottomNavBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(Assets.icons.taxi.path),
-                  const SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    "اسنپ",
-                    style: MyTextStyle.textStyle2,
-                  ),
-                ],
+              GestureDetector(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const MapScreen(),)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(Assets.icons.taxi.path),
+                    const SizedBox(
+                      height: 3,
+                    ),
+                    Text(
+                      "اسنپ",
+                      style: MyTextStyle.textStyle2,
+                    ),
+                  ],
+                ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -385,7 +389,7 @@ class DetailBanner extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Container(
           width: MediaQuery.of(context).size.width / 1.1,
-          height: MediaQuery.of(context).size.height / 4.6,
+          height: MediaQuery.of(context).size.height / 4.4,
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
@@ -404,7 +408,7 @@ class DetailBanner extends StatelessWidget {
                   child: Image.asset(
                     imgUrl,
                     width: MediaQuery.of(context).size.width / 1.1,
-                    height: MediaQuery.of(context).size.height / 7.5,
+                    height: MediaQuery.of(context).size.height / 7,
                     fit: BoxFit.fill,
                   )),
               Padding(
@@ -419,7 +423,7 @@ class DetailBanner extends StatelessWidget {
                           width: 28,
                         ),
                         const SizedBox(
-                          width: 6,
+                          width: 8,
                         ),
                         Text(
                           title,
@@ -428,13 +432,14 @@ class DetailBanner extends StatelessWidget {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                      },
                       style: const ButtonStyle(
                           side: MaterialStatePropertyAll(
                             BorderSide(width: 1.2, color: Colors.green),
                           ),
-                          maximumSize: MaterialStatePropertyAll(Size(104, 30)),
-                          minimumSize: MaterialStatePropertyAll(Size(104, 30)),
+                          maximumSize: MaterialStatePropertyAll(Size(104, 34)),
+                          minimumSize: MaterialStatePropertyAll(Size(104, 34)),
                           backgroundColor:
                               MaterialStatePropertyAll(Colors.white),
                           textStyle: MaterialStatePropertyAll(
@@ -451,5 +456,201 @@ class DetailBanner extends StatelessWidget {
             ],
           ),
         ));
+  }
+}
+
+class DetailBannerListView extends StatelessWidget {
+  const DetailBannerListView({
+    super.key,
+    required this.context,
+  });
+
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 4.3,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: detailListItems.length,
+          itemBuilder: (context, index) {
+            return Padding(
+                padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 1.28,
+                  height: MediaQuery.of(context).size.height / 4.7,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 20,
+                        )
+                      ]),
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(15),
+                              topLeft: Radius.circular(15)),
+                          child: Image.asset(
+                            detailListItems[index].imgUrl,
+                            width: MediaQuery.of(context).size.width / 1.1,
+                            height: MediaQuery.of(context).size.height / 7.9,
+                            fit: BoxFit.cover,
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  detailListItems[index].iconUrl,
+                                  width: 28,
+                                ),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.width / 3.1,
+                                  child: Text(
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    detailListItems[index].title,
+                                    style: MyTextStyle.textStyle3,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: const ButtonStyle(
+                                  side: MaterialStatePropertyAll(
+                                    BorderSide(width: 1.2, color: Colors.green),
+                                  ),
+                                  maximumSize: MaterialStatePropertyAll(Size(104, 34)),
+                                  minimumSize: MaterialStatePropertyAll(Size(104, 34)),
+                                  backgroundColor:
+                                  MaterialStatePropertyAll(Colors.white),
+                                  textStyle: MaterialStatePropertyAll(
+                                      TextStyle(fontFamily: "Vazir")),
+                                  foregroundColor:
+                                  MaterialStatePropertyAll(Colors.green)),
+                              child:  Text(
+                                detailListItems[index].buttonTitle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ));
+          },
+      ),
+    );
+  }
+}
+
+class DetailBannerListView2 extends StatelessWidget {
+  const DetailBannerListView2({
+    super.key,
+    required this.context,
+  });
+
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 4.3,
+      child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: detailListItems2.length,
+        itemBuilder: (context, index) {
+          return Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
+              child: Container(
+                width: MediaQuery.of(context).size.width / 1.28,
+                height: MediaQuery.of(context).size.height / 4.7,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 20,
+                      )
+                    ]),
+                child: Column(
+                  children: [
+                    ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(15),
+                            topLeft: Radius.circular(15)),
+                        child: Image.asset(
+                          detailListItems2[index].imgUrl,
+                          width: MediaQuery.of(context).size.width / 1.1,
+                          height: MediaQuery.of(context).size.height / 7.9,
+                          fit: BoxFit.cover,
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                detailListItems2[index].iconUrl,
+                                width: 28,
+                              ),
+                              const SizedBox(
+                                width: 8,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width / 3.1,
+                                child: Text(
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  detailListItems2[index].title,
+                                  style: MyTextStyle.textStyle3,
+                                ),
+                              ),
+                            ],
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: const ButtonStyle(
+                                side: MaterialStatePropertyAll(
+                                  BorderSide(width: 1.2, color: Colors.green),
+                                ),
+                                maximumSize: MaterialStatePropertyAll(Size(109, 34)),
+                                minimumSize: MaterialStatePropertyAll(Size(109, 34)),
+                                backgroundColor:
+                                MaterialStatePropertyAll(Colors.white),
+                                textStyle: MaterialStatePropertyAll(
+                                    TextStyle(fontFamily: "Vazir")),
+                                foregroundColor:
+                                MaterialStatePropertyAll(Colors.green)),
+                            child:  Text(
+                              detailListItems2[index].buttonTitle,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ));
+        },
+      ),
+    );
   }
 }

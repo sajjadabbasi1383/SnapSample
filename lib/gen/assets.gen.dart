@@ -40,6 +40,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Line.png
   AssetGenImage get line => const AssetGenImage('assets/icons/Line.png');
 
+  /// File path: assets/icons/Market.png
+  AssetGenImage get market => const AssetGenImage('assets/icons/Market.png');
+
   /// File path: assets/icons/Vistor.png
   AssetGenImage get vistor => const AssetGenImage('assets/icons/Vistor.png');
 
@@ -141,6 +144,7 @@ class $AssetsIconsGen {
         golsetan,
         hotel2,
         line,
+        market,
         vistor,
         bike,
         bus,
@@ -185,6 +189,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/Bus.jpg
   AssetGenImage get bus => const AssetGenImage('assets/images/Bus.jpg');
+
+  /// File path: assets/images/Digital.jpg
+  AssetGenImage get digital => const AssetGenImage('assets/images/Digital.jpg');
 
   /// File path: assets/images/Flight.jpg
   AssetGenImage get flight => const AssetGenImage('assets/images/Flight.jpg');
@@ -250,6 +257,13 @@ class $AssetsImagesGen {
   /// File path: assets/images/Wistore.jpg
   AssetGenImage get wistore => const AssetGenImage('assets/images/Wistore.jpg');
 
+  /// File path: assets/images/arayeshi.jpg
+  AssetGenImage get arayeshi =>
+      const AssetGenImage('assets/images/arayeshi.jpg');
+
+  /// File path: assets/images/atari.jpg
+  AssetGenImage get atari => const AssetGenImage('assets/images/atari.jpg');
+
   /// File path: assets/images/bannerBina.jpg
   AssetGenImage get bannerBina =>
       const AssetGenImage('assets/images/bannerBina.jpg');
@@ -298,19 +312,44 @@ class $AssetsImagesGen {
   AssetGenImage get bannerQest =>
       const AssetGenImage('assets/images/bannerQest.png');
 
+  /// File path: assets/images/behdasht-va-salamat.jpg
+  AssetGenImage get behdashtVaSalamat =>
+      const AssetGenImage('assets/images/behdasht-va-salamat.jpg');
+
+  /// File path: assets/images/express-sell.jpeg
+  AssetGenImage get expressSell =>
+      const AssetGenImage('assets/images/express-sell.jpeg');
+
+  /// File path: assets/images/goll.jpg
+  AssetGenImage get goll => const AssetGenImage('assets/images/goll.jpg');
+
   /// File path: assets/images/golsetan.jpg
   AssetGenImage get golsetan =>
       const AssetGenImage('assets/images/golsetan.jpg');
 
+  /// File path: assets/images/home.jpg
+  AssetGenImage get home => const AssetGenImage('assets/images/home.jpg');
+
   /// File path: assets/images/intflight.jpg
   AssetGenImage get intflight =>
       const AssetGenImage('assets/images/intflight.jpg');
+
+  /// File path: assets/images/labaniyat-.jpg
+  AssetGenImage get labaniyat =>
+      const AssetGenImage('assets/images/labaniyat-.jpg');
 
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
   /// File path: assets/images/mizban.jpg
   AssetGenImage get mizban => const AssetGenImage('assets/images/mizban.jpg');
+
+  /// File path: assets/images/poshak.jpg
+  AssetGenImage get poshak => const AssetGenImage('assets/images/poshak.jpg');
+
+  /// File path: assets/images/sargarmi.jpg
+  AssetGenImage get sargarmi =>
+      const AssetGenImage('assets/images/sargarmi.jpg');
 
   /// File path: assets/images/taghche-banner.jpg
   AssetGenImage get taghcheBanner =>
@@ -321,6 +360,7 @@ class $AssetsImagesGen {
         bannerSell,
         bimeMobile,
         bus,
+        digital,
         flight,
         frameAjil,
         frameAtari,
@@ -338,6 +378,8 @@ class $AssetsImagesGen {
         loyaltyClubTrain,
         sibApp,
         wistore,
+        arayeshi,
+        atari,
         bannerBina,
         bannerBlacFri,
         bannerCompany,
@@ -350,10 +392,17 @@ class $AssetsImagesGen {
         bannerMazMaz,
         bannerPay,
         bannerQest,
+        behdashtVaSalamat,
+        expressSell,
+        goll,
         golsetan,
+        home,
         intflight,
+        labaniyat,
         logo,
         mizban,
+        poshak,
+        sargarmi,
         taghcheBanner
       ];
 }

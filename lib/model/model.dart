@@ -274,3 +274,31 @@ List<DiscountListItemModel> discountListItems=[
   DiscountListItemModel(imgUrl: Assets.images.bus.path,title: "خرید بلیت اتوبوس",score: "1000",iconUrl: Assets.icons.bus2.path,),
   DiscountListItemModel(imgUrl: Assets.images.intflight.path,title: "اولین بلیط پرواز خارجی",score: "1500",iconUrl: Assets.icons.flight2.path,),
 ];
+
+class DetailListItemModel{
+   late String iconUrl;
+   late String title;
+   late String buttonTitle;
+   late String imgUrl;
+
+   DetailListItemModel({required this.iconUrl,
+     required this.title,
+     required this.imgUrl,
+     required this.buttonTitle,});
+}
+
+List<DetailListItemModel> detailListItems=[
+  DetailListItemModel(imgUrl: Assets.images.arayeshi.path,title: "جمعه پر تخفیف سرویس اعتباری",buttonTitle: "خرید کنید",iconUrl: Assets.icons.credit.path,),
+  DetailListItemModel(imgUrl: Assets.images.digital.path,title: "جمعه پر تخفیف سرویس اعتباری",buttonTitle: "خرید کنید",iconUrl: Assets.icons.insurance.path,),
+  DetailListItemModel(imgUrl: Assets.images.poshak.path,title: "جمعه پر تخفیف سرویس اعتباری",buttonTitle: "خرید کنید",iconUrl: Assets.icons.hotel2.path,),
+  DetailListItemModel(imgUrl: Assets.images.home.path,title: "جمعه پر تخفیف سرویس اعتباری",buttonTitle: "خرید کنید",iconUrl: Assets.icons.flight.path,),
+  DetailListItemModel(imgUrl: Assets.images.sargarmi.path,title: "جمعه پر تخفیف سرویس اعتباری",buttonTitle: "خرید کنید",iconUrl: Assets.icons.sibApp.path,),
+
+];
+List<DetailListItemModel> detailListItems2=[
+  DetailListItemModel(imgUrl: Assets.images.labaniyat.path,title: "سفارش محصولات لبنی",buttonTitle: "سفارش دهید",iconUrl: Assets.icons.food.path,),
+  DetailListItemModel(imgUrl: Assets.images.goll.path,title: "سفارش گل و گیاه",buttonTitle: "سفارش دهید",iconUrl: Assets.icons.food.path,),
+  DetailListItemModel(imgUrl: Assets.images.atari.path,title: "سفارش محصولات عطاری",buttonTitle: "سفارش دهید",iconUrl: Assets.icons.food.path,),
+  DetailListItemModel(imgUrl: Assets.images.behdashtVaSalamat.path,title: "سفارش محصولات سلامت و زیبایی",buttonTitle: "سفارش دهید",iconUrl: Assets.icons.food.path,),
+
+];
